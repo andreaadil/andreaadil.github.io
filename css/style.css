@@ -370,12 +370,9 @@ body{
   right:0;
   top:0;
 }
-
-
-
-
-
-
+.close{
+  position:relative;
+}
 
   #site-logo{
     text-align:left;
