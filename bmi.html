@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="hub for fitness advice">
+  <meta name="keywords" content="sports nutrition, excercise, training, mindfulness, mental health, health and wellbeing">
+  <meta name="author" content="Andrea Adil">
+  <title>Informed | Make it happen</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://kit.fontawesome.com/33ea2617c5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="hero-image">
+      <div class="container">
+        <div id="top-nav-bar">
+          <div id="site-logo">
+            <a href="index.html" class="custom-logo-link" rel="home">
+              <img class="logo-image" alt="informed-logo" src="img/logo-01.svg"></a>
+          </div>
+          <div id="top-menu">
+            <nav class="top-nav">
+              <ul>
+                <li><a class="icon" onclick="navFunction()">
+                  <i class="fas fa-bars"></i>
+                </a></li>
+                <li><a href="index.html">Home</a></li>
+                <li class="current"><a href="bmi.html">BMI Calcutor</a></li>
+                <li><a href="meditate.html">Meditate</a></li>
+                <li><a href="#openModal">Resources</a>
+                  <div id="openModal" class="modalDialog">
+                    <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                      <nav id="modal-nav">
+                        <ul>
+                          <li class="no-style"><a href="https://ais.gov.au/nutrition" target=_blank>
+                              <h3>Sports Nutrition</h3>
+                            </a></li>
+                          <li class="no-style"><a href="https://darebee.com/" target=_blank>
+                              <h3>Training</h3>
+                            </a></li>
+                          <li class="no-style"><a href="https://healthengine.com.au/info/exercise-recovery" target=_blank>
+                              <h3>Recovery</h3>
+                            </a></li>
+
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <section id="bmi">
+        <div class="calculator">
+          <h1>Calculate Your BMI</h1>
+          <form class="bmi-form" action="index.html" method="post">
+            <div class="flex-container">
+              <div class="left-col">
+                <input type="number" name="weight" value="" placeholder="65"><br>
+                <input type="number" name="height" value="" placeholder="161">
+              </div>
+              <div class="right-col">
+                <p> kg</p>
+                <p> cm</p>
+              </div>
+            </div>
+            <button type="submit" name="calculate-button">Calculate BMI</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </header>
+    <script src="index.js" charset="utf-8"></script>
+</body>
