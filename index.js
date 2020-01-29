@@ -1,7 +1,34 @@
+// RESPONSIVE NAVBAR
 function navFunction() {
   var x = document.getElementById("top-menu");
   document.querySelector(".top-nav").classList.toggle("responsive");
 }
+
+// BMI CALCULATOR
+
+function calculateBMI() {
+  var weight = document.querySelector(".weight").value;
+  var height = document.querySelector(".height").value;
+  var calculatedBmi = bmiCalculator(weight, height);
+
+  if (calculatedBmi < 16) {
+    var bmiCategory = "severely underweight";
+  } else if (calculatedBmi >= 16 && calculatedBmi < 25) {
+    var bmiCategory = "underweight";
+  } else if (calculatedBmi >= 25 && calculatedBmi < 30) {
+    var bmiCategory = "overweight";
+  } else {
+    var bmiCategory = "obese";
+  };
+
+  document.querySelector(".calculator h1").innerText = "You BMI is " + calculatedBmi + ". You are " + bmiCategory + ".";
+  document.querySelector(".bmi-button").innerText = "Recalculate BMI";
+
+  function bmiCalculator(w, h) {
+    var bmi = Math.round(w / (Math.pow((h / 100), 2)));
+    return bmi;
+  };
+};
 
 //
 //

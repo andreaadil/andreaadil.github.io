@@ -296,7 +296,11 @@ input[type=number] {
   margin:0;
 }
 
-.bmi-form button, .medbtn{
+.bmi-button-p{
+  text-align:center;
+}
+
+.bmi-button, .medbtn{
   font-size:1.2rem;
   color:#ffffff;
   background-color:#8311b5;
@@ -304,10 +308,11 @@ input[type=number] {
   border-radius:25px;
   border-shadow:2px 3px 5px #0c0f12;
   padding:12px 20px;
-  margin-top:2.5%;
+  margin:2.5%;
+  text-align:center;
 }
 
-.bmi-form button:hover, .medbtn:hover{
+.bmi-button:hover, .medbtn:hover{
   color:#8311b5;
   background-color:#ffffff;
 }

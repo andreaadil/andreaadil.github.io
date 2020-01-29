@@ -63,16 +63,18 @@
           <form class="bmi-form">
             <div class="flex-container">
               <div class="left-col">
-                <input type="number" name="weight" value="" placeholder="65"><br>
-                <input type="number" name="height" value="" placeholder="161">
+                <input class="weight" type="number" name="weight" value="" placeholder="65"><br>
+                <input class="height" type="number" name="height" value="" placeholder="161">
               </div>
               <div class="right-col">
                 <p> kg</p>
                 <p> cm</p>
               </div>
             </div>
-            <button type="submit" name="calculate-button" href="bmi.html">Calculate BMI</button>
           </form>
+          <p class="bmi-button-p">
+            <button class="bmi-button" onclick="calculateBMI()">Calculate BMI</button>  
+          </p>
         </div>
       </section>
     </div>
