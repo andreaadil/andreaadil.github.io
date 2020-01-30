@@ -61,7 +61,8 @@
 
   <section id="meditate">
     <div class="timer">
-      <form class="bmi-form" method="get">
+      <p class="add-timer-text"></p>
+      <form class="bmi-form med-form" method="get">
         <div class="flex-container">
           <div class="left-col">
             <input type="number" name="minutes" placeholder="30" maxlength="2">
@@ -75,7 +76,7 @@
         </div>
       </form>
       <p class="medp">
-        <button class="medbtn" onclick="meditate()"><i class="fas fa-play"></i></button><button class="medbtn" type="reset" name="button"><i class="fas fa-sync-alt"></i></button>
+        <button class="medbtn" onclick="meditate()"><i class="fas fa-play"></i></button><button class="medbtn" onclick="reset()"><i class="fas fa-sync-alt"></i></button>
         </p>
 </div>
   </section>

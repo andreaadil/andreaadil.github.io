@@ -13,8 +13,10 @@ function calculateBMI() {
 
   if (calculatedBmi < 16) {
     var bmiCategory = "severely underweight";
-  } else if (calculatedBmi >= 16 && calculatedBmi < 25) {
+  } else if (calculatedBmi >= 16 && calculatedBmi < 18.5) {
     var bmiCategory = "underweight";
+  } else if (calculatedBmi >= 18.5 && calculatedBmi < 25) {
+    var bmiCategory = "ideal";
   } else if (calculatedBmi >= 25 && calculatedBmi < 30) {
     var bmiCategory = "overweight";
   } else {
@@ -30,36 +32,45 @@ function calculateBMI() {
   };
 };
 
+
+// MEDITATE TIMER
+function meditate() {
+  var initTime = (document.querySelector(".timer .left-col input").value * 60) + document.querySelector(".timer .right-col input").value;
+  var time = initTime - 1;
+  var initDisplay = document.querySelector(".add-timer-text");
+  var display = initDisplay;
+
+  startTimer(time, display);
+
+  function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+
+  var countDown = setInterval(myTimer, 1000);
+
+  function myTimer() {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.innerText = minutes + ":" + seconds;
+    document.querySelector(".med-form").classList.add("timer-display");
+
+    if (--timer < 0) {
+      timer = duration;
+    }
+};
+
+
+};
+};
 //
-//
-//
-// function meditate() {
-//
-//   // Setting variables
-//   var minutes = (document.querySelector(".left-col input").value - 1);
-//
-// if(document.querySelector(".right-col input").value > 0) {
-//     var seconds = (document.querySelector(".right-col input").value);
-// } else {
-//   var seconds = 59;
+// function reset() {
+//   clearInterval(countDown);
+//   document.querySelector(".med-form").classList.remove("timer-display");
 // };
-//
-// // Setting minute to one less
-// setTimeout(function() {document.querySelector(".left-col").innerHTML = "<p>" + minutes + "</p>";}, 1000);
-//
-//
-// // Countdown
-// setInterval(function() {
-//     document.querySelector(".right-col").innerHTML = "<p>" + seconds-- + "</p>"; }, 1000);
-// };
-//
-// setInterval(function() {
-//   document.querySelector(".left-col").innerHTML = "<p>" + minutes-- + "</p>"
-// }, 60000);
-//
-// }
-// // if seconds = 0
-//   // setInterval(function() {
-//   //   document.querySelector(".left-col").innerHTML = "<p>" + --minutes + "<p>"; }, 60000);
-//   //
-//   // }
+
+
+
+  // document.querySelector(".add-form").innerHTML = "<form class='bmi-form med-form' method='get'><div class='flex-container'><div class='left-col'><input type='number' name='minutes' placeholder='30' maxlength='2'></div><div class='middle-col'><p>:</p></div><div class='right-col'><input type='number' name='seconds' placeholder='00' maxlength='2'></div></div></form>"
