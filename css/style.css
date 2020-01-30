@@ -248,15 +248,20 @@ input[type=number] {
   text-align: center;
   font-size: 5rem;
   color: #ffffff;
+}
+#meditate .timer input{
   text-align:right;
 }
-
 #meditate .timer input::placeholder{
   color:#ffffff;
 }
-#meditate p.medp{
+#meditate p{
   text-align:center;
-  margin-top:0;
+  margin:0 auto 0;
+}
+
+#meditate .timer-display {
+  display:none;
 }
 
 /* BMI CALCULATOR */
@@ -308,7 +313,7 @@ input[type=number] {
   border-radius:25px;
   border-shadow:2px 3px 5px #0c0f12;
   padding:12px 20px;
-  margin:2.5%;
+  margin-top:2.5%;
   text-align:center;
 }
 
