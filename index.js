@@ -34,43 +34,112 @@ function calculateBMI() {
 
 
 // MEDITATE TIMER
+var paused;
+var remainingTime;
+
+
+//display correct playback options
+document.querySelector(".pause").classList.add("timer-display");
+document.querySelector(".stop").classList.add("timer-display");
+
+
+//Clear default value and allow user input
+function clearValue(column) {
+  document.querySelector("." + column + "-col .med-time").removeAttribute("value");
+}
+
+
+//When play button is clicked...
 function meditate() {
-  var initTime = (document.querySelector(".timer .left-col input").value * 60) + document.querySelector(".timer .right-col input").value;
+  var initTime = parseFloat((document.querySelector(".timer .left-col input").value * 60)) + parseFloat(document.querySelector(".timer .right-col input").value);
   var time = initTime - 1;
   var initDisplay = document.querySelector(".add-timer-text");
   var display = initDisplay;
 
-  startTimer(time, display);
+  if (paused === true) {
+    startTimer(remainingTime, display);
+  } else {
+    startTimer(time, display);
+  };
 
   function startTimer(duration, display) {
-  var timer = duration, minutes, seconds;
+    var timer = duration;
+    var minutes = parseInt(timer / 60, 10);
+    var seconds = parseInt(timer % 60, 10);
+    var countDown = setInterval(myTimer, 1000);
 
-  var countDown = setInterval(myTimer, 1000);
 
-  function myTimer() {
-    minutes = parseInt(timer / 60, 10);
-    seconds = parseInt(timer % 60, 10);
+    // Countdown function
+    function myTimer() {
+      document.querySelector(".pause").classList.remove("timer-display");
+      document.querySelector(".stop").classList.remove("timer-display");
+      document.querySelector(".play").classList.add("timer-display");
 
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    display.innerText = minutes + ":" + seconds;
-    document.querySelector(".med-form").classList.add("timer-display");
+      display.innerText = minutes + ":" + seconds;
+      initDisplay.classList.remove("timer-display");
+      document.querySelector(".med-form").classList.add("timer-display");
+      timer = timer - 1;
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
 
-    if (--timer < 0) {
-      timer = duration;
+
+      // When pause is clicked...
+      document.querySelector(".pause").addEventListener("click", function() {
+        remainingTime = timer;
+        clearInterval(countDown);
+        document.querySelector(".play").classList.remove("timer-display");
+        document.querySelector(".pause").classList.add("timer-display");
+        document.querySelector(".stop").classList.remove("timer-display");
+        paused = true;
+      });
+
+
+      //When stop is clicked...
+      document.querySelector(".stop").addEventListener("click", function() {
+        stop();
+        paused = false;
+      });
+
+      // Finish function
+      if (timer < 0) {
+        clearInterval(countDown);
+        playGong();
+        stop();
+
+        paused = false;
+      }
+
+    };
+
+    function stop() {
+      clearInterval(countDown);
+      initDisplay.classList.add("timer-display");
+      document.querySelector(".med-form").classList.remove("timer-display");
+
+      document.querySelector(".leftv").value = "30";
+      document.querySelector(".rightv").value = "00";
+
+      document.querySelector(".play").classList.remove("timer-display");
+      document.querySelector(".pause").classList.add("timer-display");
+      document.querySelector(".stop").classList.add("timer-display");
     }
+
+    function playGong() {
+      var gong = new Audio("sounds/gong.wav");
+      gong.play();
+    }
+
+  };
 };
 
 
-};
-};
-//
-// function reset() {
-//   clearInterval(countDown);
-//   document.querySelector(".med-form").classList.remove("timer-display");
-// };
+/*
+To Do (JS):
+- make timer reset to default values when no input is received
 
-
-
-  // document.querySelector(".add-form").innerHTML = "<form class='bmi-form med-form' method='get'><div class='flex-container'><div class='left-col'><input type='number' name='minutes' placeholder='30' maxlength='2'></div><div class='middle-col'><p>:</p></div><div class='right-col'><input type='number' name='seconds' placeholder='00' maxlength='2'></div></div></form>"
+To Do (General):
+- remove .html from URL's and index from home page URL
+*/

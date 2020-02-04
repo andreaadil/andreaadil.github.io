@@ -9,7 +9,12 @@
   <meta name="author" content="Andrea Adil">
   <title>Informed | Make it happen</title>
   <link rel="stylesheet" href="./css/style.css">
-  <script src="https://kit.fontawesome.com/33ea2617c5.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#8311b5">
+  <meta name="msapplication-TileColor" content="#8311b5">
+  <meta name="theme-color" content="#ff0000"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -25,7 +30,7 @@
             <nav class="top-nav">
               <ul>
                 <li><a class="icon" onclick="navFunction()">
-                    <i class="fas fa-bars"></i>
+                    <i class="fa fa-bars"></i>
                   </a></li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="bmi.html">BMI Calcutor</a></li>
@@ -65,18 +70,18 @@
       <form class="bmi-form med-form" method="get">
         <div class="flex-container">
           <div class="left-col">
-            <input type="number" name="minutes" placeholder="30" maxlength="2">
+            <input class="med-time leftv" onfocus="clearValue('left')" type="number" name="minutes" maxlength="2" value="30">
           </div>
           <div class="middle-col">
             <p>:</p>
           </div>
           <div class="right-col">
-            <input type="number" name="seconds" placeholder="00" maxlength="2">
+            <input class="med-time rightv" onfocus="clearValue('right')" type="number" name="seconds" maxlength="2" value="00">
           </div>
         </div>
       </form>
       <p class="medp">
-        <button class="medbtn" onclick="meditate()"><i class="fas fa-play"></i></button><button class="medbtn" onclick="reset()"><i class="fas fa-sync-alt"></i></button>
+        <button class="medbtn play" onclick="meditate()"><i class="fa fa-play"></i></button><button class="medbtn pause"><i class="fa fa-pause"></i></button><button class="medbtn stop"><i class="fa fa-stop"></i></button>
         </p>
 </div>
   </section>
