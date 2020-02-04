@@ -39,9 +39,10 @@ var remainingTime;
 
 
 //display correct playback options
+function playbackIcons() {
 document.querySelector(".pause").classList.add("timer-display");
 document.querySelector(".stop").classList.add("timer-display");
-
+}
 
 //Clear default value and allow user input
 function clearValue(column) {
