@@ -5,27 +5,36 @@ function navFunction() {
 }
 
 // BMI CALCULATOR
-
+//set variables
 function calculateBMI() {
   var weight = document.querySelector(".weight").value;
   var height = document.querySelector(".height").value;
   var calculatedBmi = bmiCalculator(weight, height);
 
-  if (calculatedBmi < 16) {
-    var bmiCategory = "severely underweight";
+//categorise BMI
+  if (isNaN(calculatedBmi) === true) {
+    document.querySelector(".calculator h1").innerText = "Please enter your measurements.";
+  } else if (calculatedBmi < 16) {
+    changeHeading("severely underweight");
   } else if (calculatedBmi >= 16 && calculatedBmi < 18.5) {
-    var bmiCategory = "underweight";
+    changeHeading("underweight");
   } else if (calculatedBmi >= 18.5 && calculatedBmi < 25) {
-    var bmiCategory = "ideal";
+    changeHeading("ideal");
   } else if (calculatedBmi >= 25 && calculatedBmi < 30) {
-    var bmiCategory = "overweight";
+    changeHeading("overweight");
+  } else if (calculatedBmi >= 30) {
+    changeHeading("obese");
   } else {
-    var bmiCategory = "obese";
-  };
+    console.log("error");
+  }
 
-  document.querySelector(".calculator h1").innerText = "You BMI is " + calculatedBmi + ". You are " + bmiCategory + ".";
-  document.querySelector(".bmi-button").innerText = "Recalculate BMI";
+// change headings to display BMI and category
+  function changeHeading(bmiType) {
+    document.querySelector(".calculator h1").innerText = "You BMI is " + calculatedBmi + ". You are " + bmiType + ".";
+    document.querySelector(".bmi-button").innerText = "Recalculate BMI";
+  }
 
+//calculate BMI
   function bmiCalculator(w, h) {
     var bmi = Math.round(w / (Math.pow((h / 100), 2)));
     return bmi;
@@ -138,12 +147,3 @@ function meditate() {
 
   };
 };
-
-
-/*
-To Do (JS):
-- make timer reset to default values when no input is received
-
-To Do (General):
-- remove .html from URL's and index from home page URL
-*/
