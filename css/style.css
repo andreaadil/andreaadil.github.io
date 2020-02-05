@@ -414,12 +414,15 @@ body{
 .hero-description{
     margin: 3px 5% 5%;
 }
-.calculator h1, .bmi-form, .bmi-form input{
+.calculator h1{
   font-size:2rem;
+}
+.bmi-form, .bmi-form input{
+  font-size:2.5rem;
 }
 
 .bmi-button{
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 
