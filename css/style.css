@@ -408,7 +408,12 @@ body{
     float:left;
     max-width:50%;
 }
-
+#showcase{
+  margin-top:30px;
+}
+.hero-description{
+    margin: 3px 5% 5%;
+}
 .calculator h1, .bmi-form, .bmi-form input{
   font-size:2rem;
 }
