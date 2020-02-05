@@ -409,7 +409,13 @@ body{
     max-width:50%;
 }
 
+.calculator h1, .bmi-form, .bmi-form input{
+  font-size:2rem;
+}
 
+.bmi-button{
+  font-size: 1rem;
+}
 
 
 
