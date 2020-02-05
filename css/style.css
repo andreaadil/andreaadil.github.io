@@ -417,16 +417,7 @@ body{
 .calculator h1{
   font-size:2rem;
 }
-.bmi-form, .bmi-form input{
-  font-size:2.5rem;
-  margin:5% 0 3%;
-}
 
-.bmi-form p{
-  font-size:2.5rem;
-  padding: 2% 0;
-  margin:5% 0 3%;
-}
 
 .bmi-button{
   font-size: 1.2rem;
