@@ -12,7 +12,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Lora, Serif;
+  font-family: 'Lora', Serif;
   color: #ffffff;
 }
 
@@ -183,7 +183,7 @@ input[type=number] {
 }
 
 .hero-description {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #ffffff;
   text-align: center;
   font-size: 1.2rem;
@@ -244,7 +244,7 @@ input[type=number] {
 }
 
 #meditate .timer input, #meditate .timer p{
-    font-family: Lora, Serif;
+    font-family: 'Lora', Serif;
   text-align: center;
   font-size: 5rem;
   color: #ffffff;
