@@ -40,8 +40,8 @@ var remainingTime;
 
 //display correct playback options
 function playbackIcons() {
-document.querySelector(".pause").classList.add("timer-display");
-document.querySelector(".stop").classList.add("timer-display");
+  document.querySelector(".pause").classList.add("timer-display");
+  document.querySelector(".stop").classList.add("timer-display");
 }
 
 //Clear default value and allow user input
@@ -57,7 +57,10 @@ function meditate() {
   var initDisplay = document.querySelector(".add-timer-text");
   var display = initDisplay;
 
-  if (paused === true) {
+  if (isNaN(initTime) === true) {
+    document.querySelector(".leftv").value = "30";
+    document.querySelector(".rightv").value = "00";
+  } else if (paused === true) {
     startTimer(remainingTime, display);
   } else {
     startTimer(time, display);
